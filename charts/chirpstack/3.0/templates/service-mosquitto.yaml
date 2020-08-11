@@ -8,7 +8,7 @@ spec:
   type: {{ .Values.mosquitto.service.type }}
   ports:
     - port: {{ .Values.mosquitto.service.port }}
-      targetPort: http
+      targetPort: mosquitto
       protocol: TCP
       name: http
   selector:
