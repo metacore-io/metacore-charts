@@ -42,7 +42,7 @@ spec:
             mountPath: /etc/chirpstack-network-server/network-server.toml
             subPath: network-server.toml
           ports:
-            - name: http
+            - name: mosquitto
               containerPort: 1883
               protocol: TCP
           livenessProbe:
