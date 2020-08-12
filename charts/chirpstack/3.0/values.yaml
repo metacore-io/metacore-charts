@@ -94,6 +94,7 @@ service:
 
 ingress:
   enabled: true
+  tls: true
 
   ## Set this to true in order to add the corresponding annotations for cert-manager
   #  ##
