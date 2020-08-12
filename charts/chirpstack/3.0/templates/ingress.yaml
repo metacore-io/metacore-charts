@@ -13,6 +13,8 @@ metadata:
   annotations:
     {{- if .Values.ingress.certManager }}
     kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod-ci
+    external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
     {{- end }}
     {{- if .Values.ingress.annotations }}
     {{- include "chirpstack.tplValue" (dict "value" .Values.ingress.annotations "context" $) | nindent 4 }}
