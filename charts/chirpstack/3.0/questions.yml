@@ -50,7 +50,7 @@ questions:
     - "NodePort"
     - "LoadBalancer"
   required: true
-  label:  Service Type
+  label:  Mosquitto Service Type
   show_subquestion_if: "NodePort"
   group: "Services and Load Balancing"
 
@@ -63,7 +63,7 @@ questions:
     - "NodePort"
     - "LoadBalancer"
   required: true
-  label: Mosquito Service Type
+  label: Application Server Service Type
   show_subquestion_if: "NodePort"
   group: "Services and Load Balancing"
 
@@ -76,7 +76,7 @@ questions:
     - "NodePort"
     - "LoadBalancer"
   required: true
-  label: Mosquito Service Type
+  label: Gateway Bridge Service Type
   show_subquestion_if: "NodePort"
   group: "Services and Load Balancing"
 
@@ -90,7 +90,7 @@ questions:
   group: "Services and Load Balancing"
   subquestions:
   - variable: ingress.hostname
-    default: "xip.io"
+    default: "cloud.metacore.io"
     description: "Hostname to your  installation"
     type: hostname
     required: true
