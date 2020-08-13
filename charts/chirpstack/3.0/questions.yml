@@ -63,7 +63,7 @@ questions:
     - "NodePort"
     - "LoadBalancer"
   required: true
-  label: Mosquito Service Type
+  label: Applicationserver Service Type
   show_subquestion_if: "NodePort"
   group: "Services and Load Balancing"
 
@@ -76,7 +76,7 @@ questions:
     - "NodePort"
     - "LoadBalancer"
   required: true
-  label: Mosquito Service Type
+  label: GatewayBridge Service Type
   show_subquestion_if: "NodePort"
   group: "Services and Load Balancing"
 

@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "chirpstack.fullname" . }}-geolocation-server
+  name: {{ include "chirpstack.fullname" . }}-geolocationserver
   labels:
     {{- include "chirpstack.labels" . | nindent 4 }}
-    app: geolocation-server
+    app.kubernetes.io/instance: "geolocationserver"
 spec:
 {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
@@ -12,6 +12,7 @@ spec:
   selector:
     matchLabels:
       {{- include "chirpstack.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/instance: "geolocationserver"
   template:
     metadata:
     {{- with .Values.podAnnotations }}
@@ -20,6 +21,7 @@ spec:
     {{- end }}
       labels:
         {{- include "chirpstack.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/instance: "geolocationserver"
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
