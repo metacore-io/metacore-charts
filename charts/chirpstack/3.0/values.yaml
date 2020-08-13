@@ -27,7 +27,7 @@ gatewaybridge:
     tag: "3"
   service:
      type: ClusterIP
-     port: 1883
+     port: 1700
 
 
 geolocationserver:
