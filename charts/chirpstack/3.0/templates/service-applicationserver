@@ -4,6 +4,7 @@ metadata:
   name: {{ include "chirpstack.fullname" . }}-applicationserver
   labels:
     {{- include "chirpstack.labels" . | nindent 4 }}
+    app.kubernetes.io/instance: "applicationserver"
 spec:
   type: {{ .Values.applicationserver.service.type }}
   ports:
@@ -13,3 +14,4 @@ spec:
       name: http
   selector:
     {{- include "chirpstack.selectorLabels" . | nindent 4 }}
+    app.kubernetes.io/instance: "applicationserver"

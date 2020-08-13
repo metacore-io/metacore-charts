@@ -4,7 +4,7 @@ metadata:
   name: {{ include "chirpstack.fullname" . }}-networkserver
   labels:
     {{- include "chirpstack.labels" . | nindent 4 }}
-    app: networkserver
+    app.kubernetes.io/instance:  "networkserver" 
 spec:
 {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
