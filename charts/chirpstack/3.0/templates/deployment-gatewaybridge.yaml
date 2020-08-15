@@ -44,7 +44,7 @@ spec:
             mountPath: /etc/chirpstack-gateway-bridge/gateway-bridge.toml
             subPath: gateway-bridge.toml
           ports:
-            - name: http
+            - name: gatewaybridge
               containerPort: 1700
               protocol: UDP
           resources:
