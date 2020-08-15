@@ -9,9 +9,9 @@ spec:
   type: {{ .Values.gatewaybridge.service.type }}
   ports:
     - port: {{ .Values.gatewaybridge.service.port }}
-      targetPort: http
+      targetPort: gatewaybridge
       protocol: UDP
-      name: http
+      name: gatewaybridge
   selector:
     {{- include "chirpstack.selectorLabels" . | nindent 4 }}
     app.kubernetes.io/instance: "gatewaybridge"

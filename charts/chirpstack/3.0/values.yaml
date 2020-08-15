@@ -9,6 +9,10 @@ networkserver:
     repository: chirpstack/chirpstack-network-server
     pullPolicy: IfNotPresent
     tag: "3"
+  service:
+     type: ClusterIP
+     port: 8000
+
 
 applicationserver:
   image:
