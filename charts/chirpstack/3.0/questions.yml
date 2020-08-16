@@ -6,7 +6,7 @@ questions:
   required: true
   label: Postgresql Persistent Volume Enabled
   show_subquestion_if: true
-  group: "Database Settings"
+  group: "Postgresql Settings"
   subquestions:
   - variable: postgresql.persistence.size
     default: "8Gi"
@@ -23,6 +23,7 @@ questions:
     description: "If not empty, uses the specified existing PVC instead of creating new one"
     type: string
     label: Existing Persistent Volume Claim for Postgresql
+
 - variable: redis.master.persistence.enabled
   default: "false"
   description: "Enable persistent volume for Redis"
@@ -43,6 +44,22 @@ questions:
     description: "If undefined or null, uses the default StorageClass. Default to null"
     type: storageclass
     label: Default StorageClass for Redis
+
+- variable: mosquitto.external
+  default: "true"
+  description: "Use external mosquitto"
+  type: boolean
+  required: true
+  label: Use external mosquitto
+  group: "Mosquitto Settings"
+  show_subquestion_if: mosquitto.external=true
+  subquestions:
+  - variable: mosquitto.external_address
+    default: "tcp://MOSQUITTO_ADDRESS:MOSQUITTO_PORT"
+    description: "Mosquitto ADDRESS"
+    type: string
+    label: Mosquitto Address
+
 
 - variable: mosquitto.service.type
   default: "ClusterIP"
