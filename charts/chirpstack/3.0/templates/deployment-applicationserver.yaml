@@ -45,7 +45,7 @@ spec:
             subPath: network-server.toml
           ports:
             - name: http
-              containerPort: 8080
+              containerPort: {{ .Values.applicationserver.service.port }}
               protocol: TCP
             - name: grpc
               containerPort: 8001

@@ -43,7 +43,7 @@ spec:
             subPath: network-server.toml
           ports:
             - name: networkserver
-              containerPort: 8000
+              containerPort: {{ .Values.networkserver.service.port }}
               protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}

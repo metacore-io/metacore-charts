@@ -45,7 +45,7 @@ spec:
             subPath: gateway-bridge.toml
           ports:
             - name: gatewaybridge
-              containerPort: 1700
+              containerPort: {{ .Values.gatewaybridge.service.port }}
               protocol: UDP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
