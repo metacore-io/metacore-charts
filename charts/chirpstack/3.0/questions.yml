@@ -30,6 +30,8 @@ questions:
   required: true
   label: Redis Persistent Volume Enabled
   group: "Database Settings"
+  show_subquestion_if: true
+  group: "Redis Settings"
   subquestions:
   - variable: redis.master.persistence.size
     default: "8Gi"
