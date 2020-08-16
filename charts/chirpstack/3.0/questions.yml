@@ -52,13 +52,14 @@ questions:
   required: true
   label: Use external mosquitto
   group: "Mosquitto Settings"
-  show_subquestion_if: "mosquitto.external=true"
+  show_subquestion_if: true
   subquestions:
   - variable: mosquitto.external_address
     default: "tcp://MOSQUITTO_ADDRESS:MOSQUITTO_PORT"
     description: "Mosquitto ADDRESS"
     type: string
     label: Mosquitto Address
+    show_if: "mosquitto.external=true"
 
 
 - variable: mosquitto.service.type
