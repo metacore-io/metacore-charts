@@ -5,6 +5,7 @@ questions:
   type: boolean
   required: true
   label: Postgresql Persistent Volume Enabled
+  show_subquestion_if: true
   group: "Database Settings"
   subquestions:
   - variable: postgresql.persistence.size
