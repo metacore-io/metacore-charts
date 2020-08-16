@@ -74,6 +74,7 @@ questions:
   label:  Mosquitto Service Type
   show_subquestion_if: "NodePort"
   group: "Services and Load Balancing"
+  show_if: "mosquitto.external=false"
 
 - variable:  applicationserver.service.type
   default: "ClusterIP"
