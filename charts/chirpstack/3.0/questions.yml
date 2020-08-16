@@ -52,7 +52,7 @@ questions:
   required: true
   label: Use external mosquitto
   group: "Mosquitto Settings"
-  show_subquestion_if: mosquitto.external=true
+  show_subquestion_if: "mosquitto.external=true"
   subquestions:
   - variable: mosquitto.external_address
     default: "tcp://MOSQUITTO_ADDRESS:MOSQUITTO_PORT"
