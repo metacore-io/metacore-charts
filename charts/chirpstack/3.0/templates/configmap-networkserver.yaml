@@ -13,3 +13,4 @@ data:
      {{- end }}
      JOIN_SERVER__DEFAULT__SERVER: http://{{ include "chirpstack.fullname" . }}-applicationserver:8003
      GEOLOCATION_SERVER__SERVER: {{ include "chirpstack.fullname" . }}-geolocationserver:8005
+     METRICS__PROMETHEUS__ENDPOINT_ENABLED: "true"
