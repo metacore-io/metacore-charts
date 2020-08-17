@@ -15,10 +15,8 @@ spec:
       app.kubernetes.io/instance:  "mosquitto" 
   template:
     metadata:
-    {{- with .Values.podAnnotations }}
       annotations:
-        {{- toYaml . | nindent 8 }}
-    {{- end }}
+        checksum/config: {{ include (print $.Template.BasePath "/configmap-mosquitto.yaml") . | sha256sum }}
       labels:
         {{- include "chirpstack.selectorLabels" . | nindent 8 }}
         app.kubernetes.io/instance: "mosquitto" 
@@ -45,14 +43,14 @@ spec:
             subPath: network-server.toml
           ports:
             - name: mosquitto
-              containerPort: 1883
+              containerPort: {{ .Values.mosquitto.service.port }}
               protocol: TCP
           livenessProbe:
             tcpSocket:
-              port: 1883
+              port: {{ .Values.mosquitto.service.port }}
           readinessProbe:
             tcpSocket:
-              port: 1883
+              port: {{ .Values.mosquitto.service.port }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:

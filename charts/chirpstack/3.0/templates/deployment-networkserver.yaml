@@ -14,10 +14,8 @@ spec:
       {{- include "chirpstack.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-    {{- with .Values.podAnnotations }}
       annotations:
-        {{- toYaml . | nindent 8 }}
-    {{- end }}
+        checksum/config: {{ include (print $.Template.BasePath "/configmap-networkserver.yaml") . | sha256sum }}
       labels:
         {{- include "chirpstack.selectorLabels" . | nindent 8 }}
     spec:
@@ -43,7 +41,7 @@ spec:
             subPath: network-server.toml
           ports:
             - name: networkserver
-              containerPort: 8000
+              containerPort: {{ .Values.networkserver.service.port }}
               protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}

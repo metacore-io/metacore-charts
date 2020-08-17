@@ -42,6 +42,9 @@ geolocationserver:
 
 
 mosquitto:
+  external: true
+  external_address: tcp://MOSQUITTO_EXTERNAL_ADDRESS:MOSQUITTO_EXTERNAL_PORT
+
   image:
     repository: eclipse-mosquitto
     pullPolicy: IfNotPresent
