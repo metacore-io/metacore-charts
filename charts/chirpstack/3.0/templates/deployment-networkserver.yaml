@@ -12,12 +12,14 @@ spec:
   selector:
     matchLabels:
       {{- include "chirpstack.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/instance: "networkserver"
   template:
     metadata:
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/configmap-networkserver.yaml") . | sha256sum }}
       labels:
         {{- include "chirpstack.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/instance: "networkserver"
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
