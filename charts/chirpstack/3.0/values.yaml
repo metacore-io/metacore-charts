@@ -168,3 +168,14 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+#configure metrics exporter
+metrics:
+  enabled: true
+  # resources: {}
+  service:
+    type: ClusterIP
+    annotations:
+      prometheus.io/scrape: "true"
+      prometheus.io/port: "80"
+    loadBalancerIP:

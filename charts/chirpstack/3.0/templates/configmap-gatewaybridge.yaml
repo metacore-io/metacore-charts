@@ -8,3 +8,4 @@ data:
    {{ else }}
    INTEGRATION__MQTT__AUTH__GENERIC__SERVERS: tcp://{{ include "chirpstack.fullname" . }}-mosquitto:{{ .Values.mosquitto.service.port }}
    {{- end }}
+   METRICS__PROMETHEUS__ENDPOINT_ENABLED: "true"

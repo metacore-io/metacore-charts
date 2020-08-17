@@ -43,6 +43,17 @@ spec:
             - name: networkserver
               containerPort: {{ .Values.networkserver.service.port }}
               protocol: TCP
+            - name: metrics
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: metrics
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: metrics
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:

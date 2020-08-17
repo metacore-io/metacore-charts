@@ -45,6 +45,17 @@ spec:
             - name: gatewaybridge
               containerPort: {{ .Values.gatewaybridge.service.port }}
               protocol: UDP
+            - name: metrics
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: metrics
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: metrics
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:

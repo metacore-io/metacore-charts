@@ -12,5 +12,6 @@ data:
      {{- end }}
      APPLICATION_SERVER__API__PUBLIC_HOST: {{ include "chirpstack.fullname" . }}-applicationserver:8001
      APPLICATION_SERVER__EXTERNAL_API__JWT_SECRET: verysecret
+     METRICS__PROMETHEUS__ENDPOINT_ENABLED: "true"
 
 

@@ -51,14 +51,17 @@ spec:
             - name: grpc2
               containerPort: 8003
               protocol: TCP
+            - name: metrics
+              containerPort: 80
+              protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
-              port: http
+              path: /health
+              port: metrics
           readinessProbe:
             httpGet:
-              path: /
-              port: http
+              path: /health
+              port: metrics
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
